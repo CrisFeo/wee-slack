@@ -1884,7 +1884,7 @@ class SlackMessage(object):
         name = ""
         name_plain = ""
         if 'bot_id' in self.message_json and self.message_json['bot_id'] is not None:
-            name = "{} :]".format(self.team.bots[self.message_json["bot_id"]].formatted_name())
+            name = "{}".format(self.team.bots[self.message_json["bot_id"]].formatted_name())
             name_plain = "{}".format(self.team.bots[self.message_json["bot_id"]].formatted_name(enable_color=False))
         elif 'user' in self.message_json:
             if self.message_json['user'] == self.team.myidentifier:
@@ -1893,7 +1893,7 @@ class SlackMessage(object):
             elif self.message_json['user'] in self.team.users:
                 u = self.team.users[self.message_json['user']]
                 if u.is_bot:
-                    name = "{} :]".format(u.formatted_name())
+                    name = "{}".format(u.formatted_name())
                 else:
                     name = "{}".format(u.formatted_name())
                 name_plain = "{}".format(u.formatted_name(enable_color=False))
